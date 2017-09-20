@@ -25,7 +25,6 @@ class Backpack
   end
 
   def items_if_rainy_cold
-    weather_of_day = @attributes[:weather]
     if weather_of_day == 'rainy'
       @items << 'umbrella'
     elsif weather_of_day == 'cold'
@@ -34,19 +33,25 @@ class Backpack
   end
 
   def gym_shoes?
-    day_of_week = @attributes[:day_of_week]
     if day_of_week == 'monday' || day_of_week == 'thursday'
       @items << 'gym shoes'
     end
   end
 
   def packed_lunch_or_snacks
-    day_of_week = @attributes[:day_of_week]
     if day_of_week != 'saturday' && day_of_week != 'sunday'
       @items << 'packed lunch'
     else
       @items << 'snacks'
     end
+  end
+
+  def weather_of_day
+    @attributes[:weather]
+  end
+
+  def day_of_week
+    @attributes[:day_of_week]
   end
 
 
